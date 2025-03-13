@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Antd Override */
+input, .ant-select-selector, .ant-picker {
+  border-radius: 2px !important;
+  border: 1px solid rgba(128, 128, 128, 0.521) !important;
+  height: 40px !important;
+}
+input:focus, .ant-select-selector:focus, .ant-picker:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid gray !important;
+}
+label {
+  font-size: 16px !important;
+  color: black !important;
+}
+.ant-form-item {
+  margin: 10px 0 !important;
+}
+.ant-picker-input input {
+  border: none !important;
+}
+.ant-picker, .ant-select-selector {
+  border-radius: 2px !important;
+  border: 1px solid rgba(128, 128, 128, 0.521) !important;
+  height: 40px !important;
+}
+
+/* Common Styling */
+.spinner-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+.spinner-border {
+  width: 5rem;
+  height: 5rem;
+  color: white !important;
+}
+.page-title {
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+}
+.card-title {
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+}
+.normal-text {
+  font-size: 1rem;
+}
+.card {
+  box-shadow: 0 0 2px gray;
+  border-radius: 0 !important;
+}
+.primary-button {
+  background-color: #005555 !important;
+  border-color: #005555 !important;
+  color: white !important;
+  height: 40px !important;
+  width: max-content !important;
+  font-size: 16px !important;
+}
+
+.disabled-button {
+  background-color: gray !important;
+  border-color: gray !important;
+  color: white !important;
+  height: 40px !important;
+  width: max-content !important;
+  font-size: 16px !important;
+}
+.full-width-button {
+  width: 100% !important;
+}
+.submit-button {
+  background-color: #005555 !important;
+  border-color: #005555 !important;
+  color: white !important;
+  height: 40px !important;
+  width: 100%;
+  max-width: 400px;
+  font-size: 16px !important;
+  margin-top: 20px;
+}
+.anchor {
+  color: black !important;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 16px !important;
+}
+.anchor:hover {
+  text-decoration: underline !important;
+}
+
+/* Day Selector */
+.day-selector {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.day-selector label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+.time-range-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.add-time-button {
+  margin-left: 10px;
+}
+
+/* Schedules Accordion */
+.ant-collapse-header {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #f0f2f5;
+}
+.ant-collapse-content {
+  background-color: #ffffff;
+}
+.schedules-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.schedule-item {
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .schedules-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Authentication Pages */
+.authentication {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #005555;
+}
+.authentication-form {
+  width: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px gray;
+}
+.authentication .card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: orangered;
+  color: white !important;
+  max-width: max-content !important;
+  padding: 7px 15px;
+  margin-left: -40px;
+  border-bottom-left-radius: 10px;
+}
+.schedule-header {
+  font-weight: bold;
+  font-size: 14px;
+}
+.schedule-day {
+  font-weight: bold;
+  font-size: 14px;
+}
+.card p {
+  padding: 0;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos para la lista de citas */
+.appointment-list-container {
+  background-color: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 16px;
+}
+
+.appointment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 8px 0;
+}
+
+.time-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.no-appointments-message {
+  text-align: center;
+  color: #999;
+  font-size: 16px;
+  margin-top: 16px;
+}
+
+/* Adaptación para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .appointment-list-container {
+    padding: 12px;
+    margin-top: 12px;
+  }
+
+  .appointment-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .time-text {
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .no-appointments-message {
+    font-size: 14px;
+  }
+}
+

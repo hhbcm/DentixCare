@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Configuración de CORS
 app.use(cors({
-  origin: 'http://localhost:5173', // Cambia esto a la URL de tu frontend
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173', // Cambia esto a la URL de tu frontend en Render
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));

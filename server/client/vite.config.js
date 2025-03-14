@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // Asegúrate de que las rutas sean relativas
+  base: '/', // Asegúrate de que las rutas sean absolutas
   server: {
     proxy: {
       '/api': {

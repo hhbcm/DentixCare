@@ -10,7 +10,7 @@ app.use(express.json());
 
 // Configuración de CORS
 app.use(cors({
-  origin: process.env.FRONTEND_URL.trim(), // Asegúrate de que esto coincida exactamente con la URL de tu frontend en Render
+  origin: process.env.FRONTEND_URL.trim().replace(/\/$/, ''), // Asegúrate de que esto coincida exactamente con la URL de tu frontend en Render y elimina cualquier barra inclinada al final
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));

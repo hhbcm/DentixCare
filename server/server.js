@@ -10,7 +10,7 @@ app.use(express.json());
 
 // Configuración de CORS
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://dentixcare-frontend.onrender.com/', // Cambia esto a la URL de tu frontend en Render
+  origin: process.env.FRONTEND_URL || 'https://dentixcare-frontend.onrender.com', // Cambia esto a la URL de tu frontend en Render
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));

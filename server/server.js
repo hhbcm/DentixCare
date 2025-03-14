@@ -25,11 +25,6 @@ app.use('/api/user', userRoute);
 app.use('/api/admin', adminRoute);
 app.use('/api/dentist', dentistRoute);
 
-// Ruta básica para la raíz
-app.get('/', (req, res) => {
-  res.send('Servidor backend funcionando correctamente');
-});
-
 // Sirve los archivos estáticos del frontend
 app.use(express.static(path.join(__dirname, 'client', 'dist')));
 

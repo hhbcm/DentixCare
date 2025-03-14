@@ -14,7 +14,7 @@ function Home() {
   const getData = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.get('/api/user/get-all-approved-dentists', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/get-all-approved-dentists`, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
         },

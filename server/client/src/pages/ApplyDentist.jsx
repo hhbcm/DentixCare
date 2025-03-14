@@ -58,7 +58,7 @@ function ApplyDentist() {
     try {
       dispatch(showLoading());
       const transformedSchedule = transformSchedule(schedule);
-      const response = await axios.post('/api/user/apply-dentist-account', {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/apply-dentist-account`, {
         ...values,
         userId: user._id,
         schedule: transformedSchedule,

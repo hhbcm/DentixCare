@@ -1,4 +1,3 @@
-// UsersList.jsx
 import React, { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,7 +15,9 @@ function UsersList() {
   const getUsersData = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.get('/api/admin/get-all-users', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } });
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/admin/get-all-users`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      });
       dispatch(hideLoading());
       if (response.data.success) {
         setUsers(response.data.data);
@@ -34,7 +35,7 @@ function UsersList() {
       dispatch(showLoading());
       console.log({ userId: record._id, isBlocked }); // Agregar este console.log para verificar los datos
       const response = await axios.post(
-        'http://localhost:5000/api/admin/change-user-block-status',
+        `${import.meta.env.VITE_API_URL}/api/admin/change-user-block-status`,
         { userId: record._id, isBlocked },
         {
           headers: {
@@ -54,9 +55,6 @@ function UsersList() {
       console.error('Error cambiando el estado del usuario:', error);
     }
   };
-  
-  
-  
 
   useEffect(() => {
     if (user && !user.isAdmin) {
@@ -71,14 +69,16 @@ function UsersList() {
     { title: 'Correo', dataIndex: 'email' },
     { title: 'Creación de Cuenta', dataIndex: 'createdAt' },
     {
-      title: 'Acciones', dataIndex: 'actions', render: (text, record) => (
+      title: 'Acciones',
+      dataIndex: 'actions',
+      render: (text, record) => (
         <div className="d-flex">
           <Button onClick={() => changeUserBlockStatus(record, !record.isBlocked)}>
             {record.isBlocked ? 'Desbloquear' : 'Bloquear'}
           </Button>
         </div>
-      )
-    }
+      ),
+    },
   ];
 
   return (

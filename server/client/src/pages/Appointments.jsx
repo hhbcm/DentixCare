@@ -19,7 +19,7 @@ function Appointments() {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const response = await axios.get('/api/user/get-appointments', {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/user/get-appointments`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -43,7 +43,7 @@ function Appointments() {
   const cancelAppointment = async (id) => {
     try {
       const response = await axios.post(
-        '/api/user/cancel-appointment',
+        `${import.meta.env.VITE_API_URL}/api/user/cancel-appointment`,
         { id },
         {
           headers: {
@@ -63,7 +63,7 @@ function Appointments() {
   const markAsPaid = async (id) => {
     try {
       const response = await axios.post(
-        '/api/user/mark-appointment-paid',
+        `${import.meta.env.VITE_API_URL}/api/user/mark-appointment-paid`,
         { id },
         {
           headers: {
@@ -83,7 +83,7 @@ function Appointments() {
   const markAsMissed = async (id) => {
     try {
       const response = await axios.post(
-        '/api/user/mark-appointment-missed',
+        `${import.meta.env.VITE_API_URL}/api/user/mark-appointment-missed`,
         { id },
         {
           headers: {

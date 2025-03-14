@@ -16,7 +16,7 @@ function DentistsList() {
   const getDentistsData = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.get('/api/admin/get-all-dentists', {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/admin/get-all-dentists`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       dispatch(hideLoading());
@@ -43,7 +43,7 @@ function DentistsList() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        '/api/admin/change-dentist-account-status',
+        `${import.meta.env.VITE_API_URL}/api/admin/change-dentist-account-status`,
         { dentistId: record._id, userId: record.userId, applicationStatus },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );

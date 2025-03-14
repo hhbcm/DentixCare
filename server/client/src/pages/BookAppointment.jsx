@@ -32,7 +32,7 @@ function BookAppointment() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        '/api/dentist/get-dentist-info-by-id',
+        `${import.meta.env.VITE_API_URL}/api/dentist/get-dentist-info-by-id`,
         { dentistId: params.dentistId },
         { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
       );
@@ -69,7 +69,7 @@ function BookAppointment() {
       for (let time = startTime; time.isBefore(endTime); time = time.add(20, 'minute')) {
         availabilityPromises.push(
           axios.post(
-            '/api/user/check-booking-availability',
+            `${import.meta.env.VITE_API_URL}/api/user/check-booking-availability`,
             {
               dentistId: params.dentistId,
               date: dayjs(date).format('YYYY-MM-DD'),
@@ -103,7 +103,7 @@ function BookAppointment() {
   const bookAppointment = async (time) => {
     try {
       const response = await axios.post(
-        '/api/user/book-appointment',
+        `${import.meta.env.VITE_API_URL}/api/user/book-appointment`,
         {
           dentistId: params.dentistId,
           userId: user._id,

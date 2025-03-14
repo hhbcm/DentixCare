@@ -58,7 +58,7 @@ function Profile() {
     try {
       dispatch(showLoading());
       const transformedSchedule = transformSchedule(schedule);
-      const response = await axios.post('/api/dentist/update-dentist-profile', {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/dentist/update-dentist-profile`, {
         ...values,
         userId: user._id,
         schedule: transformedSchedule,
@@ -89,7 +89,7 @@ function Profile() {
   const getDentistData = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.post('/api/dentist/get-dentist-info-by-user-id', {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/dentist/get-dentist-info-by-user-id`, {
         userId: params.userId
       }, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }

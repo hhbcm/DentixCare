@@ -14,7 +14,7 @@ function ProtectedRoute({ children }) {
   const getUser = async () => {
     try {
       dispatch(showLoading());
-      const response = await axios.post('/api/user/get-user-info-by-id', { 
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/user/get-user-info-by-id`, { 
         token: localStorage.getItem("token")
       }, {
         headers: {

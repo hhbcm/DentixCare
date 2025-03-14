@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 require('dotenv').config();
 const dbConfig = require('./config/dbConfig');
@@ -9,7 +10,7 @@ app.use(express.json());
 
 // Configuración de CORS
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://dentixcare-frontend.onrender.com/', // Cambia esto a la URL de tu frontend en Render
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173', // Cambia esto a la URL de tu frontend en Render
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
@@ -23,6 +24,19 @@ const dentistRoute = require('./routes/dentistRoute');
 app.use('/api/user', userRoute);
 app.use('/api/admin', adminRoute);
 app.use('/api/dentist', dentistRoute);
+
+// Ruta básica para la raíz
+app.get('/', (req, res) => {
+  res.send('Servidor backend funcionando correctamente');
+});
+
+// Sirve los archivos estáticos del frontend
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
+
+// Maneja todas las demás rutas y devuelve el archivo index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
 
 // Configuración del puerto
 const port = process.env.PORT || 5000;
